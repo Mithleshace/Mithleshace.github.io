@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080B12;--bg2:#111827;--a:#00F5D4;--b:#7C5CFF;--tx:#F8FAFC;--mu:#94A3B8;--gl:rgba(255,255,255,.06);--bd:rgba(255,255,255,.12);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.sg{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;display:flex;justify-content:center}
+.nv{display:flex;gap:4px;align-items:center;background:rgba(17,24,39,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--bd);border-radius:999px;padding:6px;max-width:100%;overflow-x:auto}
+.nv a{padding:6px 12px;border-radius:999px;text-decoration:none;color:var(--mu);font-size:14px;white-space:nowrap}
+.nv a:hover{color:var(--tx);background:var(--gl)}
+.nv button{margin-left:4px}
+.btn{display:inline-block;border:1px solid var(--bd);background:var(--gl);color:var(--tx);padding:11px 20px;border-radius:12px;font:500 15px Inter,sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--a)}
+.btn.p{background:linear-gradient(135deg,var(--a),var(--b));color:#06121a;border:0;font-weight:500}
+.sm{padding:6px 14px;font-size:14px;border-radius:999px}
+section{padding:96px 24px;max-width:1080px;margin:0 auto}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:110px}
+.hw{display:flex;align-items:center;justify-content:space-between;gap:48px}
+.hero .in{max-width:620px}
+.tag{color:var(--a);font:500 15px "Space Grotesk",sans-serif;margin:0 0 14px}
+h1{font-size:clamp(36px,6.4vw,68px);line-height:1.05;margin:0 0 20px;letter-spacing:-.02em}
+.sub{color:var(--mu);font-size:18px;max-width:520px;margin:0 0 28px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.mot{margin-top:36px;color:var(--mu);font-style:italic}
+h2{font-size:clamp(28px,4vw,42px);margin:0 0 28px;letter-spacing:-.01em}
+.gl{background:var(--gl);border:1px solid var(--bd);border-radius:20px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.gl.pad{padding:26px}
+p{margin:0 0 14px}
+.mu{color:var(--mu)}
+.gl.pad{transition:border-color .25s,box-shadow .25s}
+section:not(#contact) .gl.pad:hover{border-color:var(--a);box-shadow:0 18px 50px -18px rgba(0,245,212,.45)}
+.js .rv{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.js .rv.in{opacity:1;transform:none}
+.tl li.rv{transform:translateX(-22px)}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,245,212,.45)}50%{box-shadow:0 0 0 12px rgba(0,245,212,0)}}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.sk h3{margin:0 0 12px;font-size:19px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13.5px;padding:4px 11px;border-radius:999px;border:1px solid var(--bd);color:var(--tx)}
+.chip.l{border-color:rgba(0,245,212,.45)}
+.chip.e{border-color:rgba(124,92,255,.6);color:var(--mu)}
+.lg{color:var(--mu);font-size:14px;margin-top:18px}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 6px 0 14px;border:1px solid}
+.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;perspective:1000px}
+.card{padding:24px;transform-style:preserve-3d;transition:transform .15s ease-out,border-color .25s,box-shadow .25s;will-change:transform}
+.card:hover{border-color:var(--a);box-shadow:0 18px 50px -18px rgba(0,245,212,.45)}
+.card h3{margin:0 0 4px;font-size:21px}
+.card .st{display:inline-block;font-size:12.5px;color:var(--b);border:1px solid var(--b);border-radius:999px;padding:1px 10px;margin-bottom:12px}
+.card dl{margin:14px 0 0;font-size:14px;color:var(--mu)}
+.card dt{display:inline;color:var(--tx)}
+.card dd{display:inline;margin:0}
+.card dd::after{content:"";display:block}
+.card .lk{font-size:14px;color:var(--a);text-decoration:none}
+.tl{border-left:2px solid var(--b);padding-left:22px}
+.tl li{margin-bottom:8px;color:var(--mu)}
+ul{padding-left:18px;margin:0}
+.ed{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.cta{text-align:center}
+.cta h2{max-width:640px;margin:0 auto 14px}
+form{display:grid;gap:12px;text-align:left;margin-top:24px}
+label{font-size:14px;color:var(--mu)}
+input,textarea{width:100%;background:rgba(8,11,18,.7);border:1px solid var(--bd);border-radius:10px;color:var(--tx);font:16px Inter,sans-serif;padding:11px 13px;margin-top:4px}
+.cl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.note{font-size:13px;color:var(--mu);margin-top:10px}
+footer{text-align:center;color:var(--mu);padding:40px 24px calc(40px + 70px);border-top:1px solid var(--bd);font-size:14px}
+#fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,var(--a),var(--b));color:#06121a;font:700 15px "Space Grotesk",sans-serif;box-shadow:0 10px 30px -8px rgba(0,245,212,.6)}
+#chat{position:fixed;right:18px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:30;width:min(380px,calc(100vw - 36px));height:min(540px,calc(100svh - 160px));display:none;flex-direction:column;background:rgba(13,18,30,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--bd);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px -20px #000}
+#chat.on{display:flex;animation:pop .22s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.ch{padding:14px 16px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}
+.ch b{font-family:"Space Grotesk",sans-serif}
+.ch small{display:block;color:var(--mu);font-size:12px}
+.ch button{background:none;border:0;color:var(--mu);font-size:22px;cursor:pointer;line-height:1}
+#msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:88%;padding:9px 13px;border-radius:14px;font-size:14.5px;line-height:1.5;white-space:pre-line}
+.m.b{background:var(--gl);border:1px solid var(--bd);align-self:flex-start}
+.m.u{background:linear-gradient(135deg,rgba(0,245,212,.25),rgba(124,92,255,.35));align-self:flex-end}
+.m a{color:var(--a)}
+#qs{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+#qs button{font:13px Inter,sans-serif;color:var(--tx);background:var(--gl);border:1px solid var(--bd);border-radius:999px;padding:4px 11px;cursor:pointer}
+#qs button:hover{border-color:var(--a)}
+#cf{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--bd)}
+#cf input{margin:0}
+#cf button{flex:none}
+@media(max-width:760px){.hw{flex-direction:column-reverse;align-items:flex-start;gap:28px}.two{grid-template-columns:1fr}section{padding:72px 20px}.nv a.h{display:none}}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<nav aria-label="Main"><div class="nv" id="nav"></div></nav>
+<header><section id="home" class="hero"><div class="hw"><div class="in" id="hero"></div></div></section></header>
+<main id="main"></main>
+<footer id="foot"></footer>
+<button id="fab" data-open aria-expanded="false" aria-controls="chat"></button>
+<div id="chat" role="dialog" aria-label="Portfolio assistant">
+<div class="ch"><div><b id="cname"></b><small id="cbadge"></small></div><button id="x" aria-label="Close chat">×</button></div>
+<div id="msgs" aria-live="polite"></div>
+<div id="qs"></div>
+<form id="cf"><input id="ci" placeholder="Ask about projects, skills, hiring…" aria-label="Message" autocomplete="off"><button class="btn p sm" type="submit">Send</button></form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* =====================================================================
+   EDIT YOUR WHOLE SITE HERE. Every line of text on the page and in the
+   NEXUS chatbot comes from the object D below. Change the text inside
+   the quotes. Leave link values as "" to keep that button inactive.
+   Links must start with https:// or mailto:
+   ===================================================================== */
+var D={
+ pageTitle:"Mithlesh Sutihar | Cybersecurity, AI/ML and Web Developer",
+ name:"Mithlesh Sutihar",
+ title:"Cybersecurity Engineer | AI/ML | Developer",
+ headline:"Building the Future, One Secure Digital Experience at a Time.",
+ sub:"Cybersecurity. AI/ML. Web developer. Real-World problem solver.",
+ motto:"Learn continuously. Build intelligently. Secure the future.",
+ buttons:{projects:"View My Projects",resume:"Download Resume",work:"Let’s Work Together",nexus:"NEXUS AI"},
+ nav:[["Home","home"],["About","about",1],["Skills","skills"],["Projects","projects"],["Experience","experience",1],["Education","education",1],["Contact","contact"]],
+
+ about:{title:"About",
+  paras:["I’m Mithlesh Sutihar, a technology enthusiast and cybersecurity engineer passionate about cybersecurity, artificial intelligence, machine learning, and modern web development. I enjoy combining technical problem-solving with creative design to build digital experiences that are functional, secure, and visually engaging.",
+         "Alongside my technical journey, I explore graphic design, video editing, freelance projects, and emerging technologies while continuously developing my skills to solve real-world problems."],
+  place:"Based in Hyderabad, India",
+  availability:"Open to freelance projects, remote opportunities, and full-time positions.",
+  goalLabel:"Goal:",
+  goal:"grow into a skilled cybersecurity and software engineering professional and contribute to meaningful technology projects with innovative global companies."},
+
+ skills:{title:"Skills",
+  legend:["Working skill","Exploring or still confirming"],
+  groups:[ /* item level: "l" = working skill, "e" = exploring / confirming */
+   {name:"Development",items:[["HTML","l"],["CSS","l"],["JavaScript","l"],["Python","l"],["C","l"],["Responsive design","l"]]},
+   {name:"Cybersecurity and networking",items:[["Network traffic analysis","l"],["Web app security ","l"],["Authorized lab assessment","l"],["Networking concepts","l"]]},
+   {name:"AI and machine learning",items:[["Python for ML","l"],["OpenCV","e"],["Data preprocessing","l"]]},
+   {name:"Design and multimedia",items:[["Photoshop","l"],["Canva","l"],["UI layout","l"],["Brand presentation","l"]]},
+   {name:"Tools",items:[["VS Code","l"],["Git and GitHub","e"],["Unity + Vuforia (intro AR)","e"]]}
+  ]},
+
+ projects:{title:"Projects",
+   roleLabel:"Role: ",toolsLabel:"Tools: ",
+  /* link: your URL.  linkLabel: text once the link is set.  emptyLabel: text while link is "" (delete it to hide the link row) */
+  items:[
+   {status:"Learning",title:"Cybersecurity Lab",desc:"A learning-focused lab exploring network analysis, web application security, vulnerability identification, and defensive practices.",role:"Cybersecurity",tools:"Wireshark, DVWA, Linux / Kali Linux"},
+   {status:"Learning",title:"AI/ML Experiments",desc:"Practical experiments in understanding data, building predictive models, and exploring computer vision.",role:"AI/ML developer in training",tools:"Python, OpenCV, Jupyter Notebook",link:"",linkLabel:"View repository",emptyLabel:"Repository: add GitHub link"},
+   {status:"In development",title:"Interactive Web Experiences",desc:"Responsive websites with modern layouts, animation, and premium visual interfaces.",role:"Front-end developer",tools:"HTML, CSS, JavaScript, VS Code",link:"",linkLabel:"View live site",emptyLabel:"Live link: add URL"},
+   {status:"Freelance / personal",title:"Creative Design Studio",desc:"Visual designs and digital content for branding, promotions, social media, and creative communication.",role:"Graphic designer and video editor",tools:"Canva, Photoshop, CapCut",link:"",linkLabel:"View design portfolio",emptyLabel:"Design portfolio: add link"},
+  ]},
+
+ experience:{title:"Experience",role:"Independent designer and digital project creator",type:"Freelance and independent projects",
+  points:["Create graphic designs and digital visual content.","Explore website design and development.","Produce professional-looking digital assets with creative tools.","Build personal projects to strengthen technical and problem-solving skills."]},
+
+ education:{title:"Education",school:"Sharda University",
+  detail:["B.Sc. Cybersecurity","Cybersecurity, AI/ML, and computer science engineering","Expected graduation: 2029"],
+  interestsTitle:"Academic interests",
+  interests:["Digital forensics","AI and ML","Networking and cloud","Data structures and algorithms","Secure web development"]},
+
+ resume:{title:"Resume",text:"A current PDF of my background, skills, and projects.",button:"Download Resume",link:"https://drive.google.com/file/d/1GCrIAQzY1Sp1F8olCiuK3AJJzV8ouy5b/view?usp=sharing"},
+
+ contact:{title:"Let’s turn ideas into impactful digital experiences.",
+  text:"Have a project, opportunity, or interesting idea? Let’s connect and build something meaningful together.",
+  email:"mithleshsutihar964@gmail.com",
+  form:{name:"Name",email:"Email",message:"What would you like to build?",button:"Contact Me",note:"Sending opens your email app with the message ready to go."},
+  socials:[{label:"GitHub",url:"https://github.com/Mithleshace"}]},
+
+ services:["Responsive website design and development","Portfolio and landing-page development","Graphic design and digital creatives","Video editing and content creation","Basic website maintenance","Cybersecurity learning projects and authorized lab demonstrations"],
+ footer:"© 2026 Mithlesh Sutihar.",
+
+ chat:{name:"NEXUS",badge:"AI assistant",
+  intro:"Hey! I’m NEXUS, Mithlesh’s ai assistant. I can help you explore his projects, technical interests, skills, and professional opportunities. What would you like to know?",
+  chips:["About Mithlesh?","Show projects","Skills","Services","Availability","Contact him"],
+  fallback:"I’m not sure about that one, and I won’t guess. I can talk about Mithlesh’s background, projects, skills, services, availability, or how to contact him."},
+
+ faq:[
+[/who|about|background|yourself|introduce/,"Mithlesh is an undergraduate technology student at Sharda University, interested in cybersecurity, AI/ML, web development, and digital design. His motto: learn continuously, build intelligently, secure the future."],
+[/project|work|portfolio|built|recommend/,"He has five projects, all labeled with their real status:\n• Cybersecurity Lab (learning)\n• AI/ML Experiments (learning)\n• Interactive Web Experiences (in development)\n• Creative Design Studio (freelance/personal)\n• S.S. Interior Decor and Furniture website\nTell me what you need (security, AI, web, or design) and I’ll point you to the best fit."],
+[/secur|cyber|hack|wireshark|kali|dvwa|pentest/,"His cybersecurity work is learning-focused: network traffic analysis with Wireshark, web app security basics in authorized labs like DVWA, and defensive practices. I can’t claim any site or app is secure without proper testing, so for real security work please talk to him directly."],
+[/\bai\b|ml|machine|opencv|vision|python|data/,"In AI/ML he’s working with Python, ML fundamentals, data preprocessing, and OpenCV for computer vision, mostly through hands-on experiments in Jupyter. These are learning projects."],
+[/skill|tool|tech|stack|language|use/,"Development: HTML, CSS, JavaScript, Python, C. Security: Wireshark, networking, web app security basics. Design: Photoshop, Canva, CapCut. Tools: VS Code, with Git/GitHub and Jupyter still being confirmed."],
+[/design|photoshop|canva|video|edit|capcut|graphic/,"He designs graphics for branding, promotions, and social media, and edits video with CapCut. Work is freelance and personal."],
+[/web|website|landing|html|css|javascript|front/,"He builds responsive websites and portfolio or landing pages with HTML, CSS, and JavaScript, including the S.S. Interior Decor and Furniture concept site."],
+[/service|offer|do you do|help with/,"Services:\n• Responsive website design and development\n• Portfolio and landing pages\n• Graphic design and digital creatives\n• Video editing and content creation\n• Basic website maintenance\n• Cybersecurity learning projects and authorized lab demos"],
+[/rate|price|cost|charge|budget|quote|fee/,"Rates depend on scope, complexity, and timeline. I can’t quote a price, but Mithlesh can give a custom estimate. Want to send an inquiry?"],
+[/avail|freelance|remote|full.?time|deadline|timeline|when/,"He’s open to freelance projects, remote work, and full-time roles. I can’t promise dates or deadlines, so please contact him to confirm current availability."],
+[/educat|universit|sharda|degree|study|college|graduat/,"He’s an undergraduate at Sharda University studying cybersecurity, AI/ML, and computer science subjects, with expected graduation in 2029."],
+[/experience|freelance work|client|job/,"His experience is independent and freelance: graphic design, digital content, and website projects. He doesn’t claim formal employment."],
+[/resume|cv/,"The resume is in the Resume section. <a href=\"#resume\">Jump to it</a>. The download link is being updated."],
+[/github|email|contact|reach|connect/,"You can use the contact form or his professional email. <a href=\"#contact\">Open the contact section</a>. I only share contact details he has published."],
+[/location|where|india|hyder/,"He’s based in Hyderabad, India, and works remotely too."],
+[/hello|hi\b|hey|thanks|thank/,"Happy to help. Ask about his projects, skills, services, or how to get in touch."]
+]
+};
+var EMAIL=D.contact.email;
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Page builder (no need to edit below) ---------- */
+function $(i){return document.getElementById(i)}
+function E(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function U(u){return /^(https?:|mailto:)/i.test(u||"")?u:""}
+function sec(id,h,c){return '<section id="'+id+'"'+(c?' class="'+c+'"':'')+'>'+h+'</section>'}
+function lnk(u,label,empty,cls){return U(u)?'<a class="'+cls+'" href="'+E(U(u))+'" target="_blank" rel="noopener">'+E(label)+'</a>':'<a class="'+cls+'" href="#" data-empty>'+E(empty)+'</a>'}
+document.title=D.pageTitle;document.documentElement.classList.add("js");
+$("nav").innerHTML=D.nav.map(function(n){return '<a href="#'+n[1]+'"'+(n[2]?' class="h"':'')+'>'+E(n[0])+'</a>'}).join("")+'<button class="btn p sm" data-open>'+E(D.buttons.nexus)+'</button>';
+$("hero").innerHTML='<p class="tag">'+E(D.name)+' · '+E(D.title)+'</p><h1>'+E(D.headline)+'</h1><p class="sub">'+E(D.sub)+'</p><div class="row"><a class="btn p" href="#projects">'+E(D.buttons.projects)+'</a><a class="btn" href="#resume">'+E(D.buttons.resume)+'</a><a class="btn" href="#contact">'+E(D.buttons.work)+'</a></div><p class="mot">'+E(D.motto)+'</p>';
+var a=D.about,sk=D.skills,pr=D.projects,ex=D.experience,ed=D.education,rs=D.resume,ct=D.contact,f=ct.form,h="";
+h+=sec("about",'<h2>'+E(a.title)+'</h2><div class="two"><div class="gl pad">'+a.paras.map(function(p){return '<p>'+E(p)+'</p>'}).join("")+'</div><div class="gl pad"><h3 style="margin-top:0">'+E(a.place)+'</h3><p class="mu">'+E(a.availability)+'</p><p class="mu" style="margin:0"><b style="color:var(--tx)">'+E(a.goalLabel)+'</b> '+E(a.goal)+'</p></div></div>');
+h+=sec("skills",'<h2>'+E(sk.title)+'</h2><div class="sk">'+sk.groups.map(function(g){return '<div class="gl pad"><h3>'+E(g.name)+'</h3><div class="chips">'+g.items.map(function(i){return '<span class="chip '+(i[1]==="e"?"e":"l")+'">'+E(i[0])+'</span>'}).join("")+'</div></div>'}).join("")+'</div><p class="lg"><i style="border-color:rgba(0,245,212,.7)"></i>'+E(sk.legend[0])+'<i style="border-color:#7C5CFF"></i>'+E(sk.legend[1])+'</p>');
+h+=sec("projects",'<h2>'+E(pr.title)+'</h2><div class="pr">'+pr.items.map(function(p){
+ var l=(U(p.link)||p.emptyLabel)?'<p style="margin:12px 0 0">'+lnk(p.link,p.linkLabel||"View project",p.emptyLabel||"Add link","lk")+'</p>':"";
+ return '<article class="gl card">'+(p.status?'<span class="st">'+E(p.status)+'</span>':'')+'<h3>'+E(p.title)+'</h3><p class="mu">'+E(p.desc)+'</p><dl><dt>'+E(pr.roleLabel)+'</dt><dd>'+E(p.role)+'</dd><dt>'+E(pr.toolsLabel)+'</dt><dd>'+E(p.tools)+'</dd></dl>'+l+'</article>'}).join("")+'</div>');
+h+=sec("experience",'<h2>'+E(ex.title)+'</h2><div class="gl pad rv"><h3 style="margin-top:0">'+E(ex.role)+'</h3><p class="mu">'+E(ex.type)+'</p><ul class="tl" style="list-style:none;padding-left:22px">'+ex.points.map(function(p,i){return '<li class="rv" style="transition-delay:'+(250+i*140)+'ms">'+E(p)+'</li>'}).join("")+'</ul></div>');
+h+=sec("education",'<h2>'+E(ed.title)+'</h2><div class="ed"><div class="gl pad rv"><h3 style="margin-top:0">'+E(ed.school)+'</h3><p class="mu">'+ed.detail.map(E).join("<br>")+'</p></div><div class="gl pad rv" style="transition-delay:180ms"><h3 style="margin-top:0">'+E(ed.interestsTitle)+'</h3><div class="chips">'+ed.interests.map(function(i){return '<span class="chip">'+E(i)+'</span>'}).join("")+'</div></div></div>');
+h+=sec("resume",'<div class="gl pad cta rv"><h2>'+E(rs.title)+'</h2><p class="mu">'+E(rs.text)+'</p>'+(U(rs.link)?lnk(rs.link,rs.button,rs.button,"btn p pulse"):'<a class="btn p pulse" href="#" data-resume>'+E(rs.button)+'</a>')+'</div>');
+h+=sec("contact",'<h2>'+E(ct.title)+'</h2><p class="mu">'+E(ct.text)+'</p><div class="gl pad"><form id="cform"><label>'+E(f.name)+'<input name="n" required autocomplete="name"></label><label>'+E(f.email)+'<input name="e" type="email" required autocomplete="email"></label><label>'+E(f.message)+'<textarea name="m" rows="4" required></textarea></label><button class="btn p" type="submit">'+E(f.button)+'</button><p class="note">'+E(f.note)+'</p></form></div><div class="cl">'+ct.socials.map(function(s){return lnk(s.url,s.label,s.label,"btn sm")}).join("")+'</div>',"cta");
+$("main").innerHTML=h;
+$("foot").textContent=D.footer;
+(function(){var els=document.querySelectorAll(".rv");
+ if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return}
+ var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.15});
+ els.forEach(function(e){io.observe(e)})})();
+$("fab").textContent=D.buttons.nexus;$("cname").textContent=D.chat.name;$("cbadge").textContent=D.chat.badge;
+document.querySelectorAll("[data-empty]").forEach(function(x){x.addEventListener("click",function(e){e.preventDefault();alert("This link isn’t added yet. Add it in the D block at the top of the page script.")})});
+
+/* Particle background */
+(function(){
+ try{
+  var cv=document.getElementById("bg"),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+  R.setPixelRatio(Math.min(devicePixelRatio,1.75));
+  var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(50,1,.1,100);C.position.z=6;
+  var n=600,p=new Float32Array(n*3);for(var k=0;k<n*3;k++)p[k]=(Math.random()-.5)*20;
+  var pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.BufferAttribute(p,3));
+  var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0x7C5CFF,size:.03,transparent:true,opacity:.75}));S.add(pts);
+  var mx=0,my=0;
+  addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+  function rs(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+  rs();addEventListener("resize",function(){rs();if(RM)R.render(S,C)});
+  var t=0;
+  function f(){t+=.002;pts.rotation.y=t+mx*.3;pts.rotation.x=my*.2;R.render(S,C);requestAnimationFrame(f)}
+  if(RM)R.render(S,C);else f();
+ }catch(e){document.getElementById("bg").style.display="none"}
+})();
+
+/* Card tilt */
+document.querySelectorAll(".card").forEach(function(c){
+ if(RM)return;
+ c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  c.style.transform="rotateY("+x*12+"deg) rotateX("+-y*12+"deg) translateZ(8px)"});
+ c.addEventListener("pointerleave",function(){c.style.transform=""});
+});
+
+/* Contact form */
+document.getElementById("cform").addEventListener("submit",function(e){
+ e.preventDefault();var d=new FormData(e.target);
+ location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Project inquiry from "+d.get("n"))+"&body="+encodeURIComponent(d.get("m")+"\n\nFrom: "+d.get("n")+" ("+d.get("e")+")");
+});
+
+/* NEXUS */
+var chat=document.getElementById("chat"),M=document.getElementById("msgs"),Q=document.getElementById("qs"),CI=document.getElementById("ci"),flow=null,lead={},greeted=false;
+function open_(v){chat.classList.toggle("on",v);document.getElementById("fab").setAttribute("aria-expanded",v);
+ if(v){if(!greeted){greeted=true;say(D.chat.intro);chips(D.chat.chips)}CI.focus()}}
+document.querySelectorAll("[data-open]").forEach(function(b){b.addEventListener("click",function(){open_(!chat.classList.contains("on"))})});
+document.getElementById("x").onclick=function(){open_(false)};
+addEventListener("keydown",function(e){if(e.key==="Escape")open_(false)});
+function say(t,u){var d=document.createElement("div");d.className="m "+(u?"u":"b");if(!u&&/<a /.test(t))d.innerHTML=t;else d.textContent=t;M.appendChild(d);M.scrollTop=M.scrollHeight}
+function chips(a){Q.innerHTML="";a.forEach(function(s){var b=document.createElement("button");b.type="button";b.textContent=s;b.onclick=function(){ask(s)};Q.appendChild(b)})}
+var KB=D.faq;
+function ask(t){
+ say(t,true);Q.innerHTML="";
+ setTimeout(function(){reply(t)},RM?0:350);
+}
+function reply(t){
+ var l=t.toLowerCase();
+ if(flow){
+  if(/cancel|stop|never ?mind/.test(l)){flow=null;lead={};say("No problem, nothing was saved. Anything else?");return}
+  if(flow==="n"){lead.n=t.trim();flow="e";say("Thanks, "+lead.n+". What email should Mithlesh reply to?");return}
+  if(flow==="e"){if(!/^\S+@\S+\.\S+$/.test(t.trim())){say("That doesn’t look like an email address. Try name@example.com, or say “cancel”.");return}
+   lead.e=t.trim();flow="m";say("Last step: describe your project or idea in a sentence or two.");return}
+  if(flow==="m"){lead.m=t.trim();flow=null;
+   var href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Project inquiry from "+lead.n)+"&body="+encodeURIComponent(lead.m+"\n\nFrom: "+lead.n+" ("+lead.e+")");
+   say("Got it. Nothing is stored here, so tap the link to send it by email:\n<a href=\""+href+"\">Send inquiry to Mithlesh</a>");lead={};chips(["Services","Show projects"]);return}
+ }
+ if(/hire|inquir|work with|collaborat|project idea|get started|let.?s work|proposal/.test(l)){
+  flow="n";say("Great. I’ll collect just what’s needed for an inquiry: name, email, and a short description. Say “cancel” anytime. First, what’s your name?");return}
+ if(AI){askAI(t);return}
+ for(var i=0;i<KB.length;i++)if(KB[i][0].test(l)){say(KB[i][1]);chips(["Show projects","Services","Hire him"]);return}
+ say(D.chat.fallback);chips(["Who is Mithlesh?","Show projects","Services","Hire him"]);
+}
+document.getElementById("cf").addEventListener("submit",function(e){e.preventDefault();var v=CI.value.trim();if(!v)return;CI.value="";ask(v)});
+
+/* ---------- NEXUS live AI (Claude). Falls back to the D.faq answers if unavailable ---------- */
+var AI=null,hist=[],busy=false;
+if(window.claude&&claude.use)claude.use("sample").then(function(x){if(x){AI=x;$("cbadge").textContent=D.chat.badge+" · powered by Claude"}}).catch(function(){});
+function SYS(){
+ var k={name:D.name,title:D.title,headline:D.headline,about:D.about,skills:D.skills.groups,
+  projects:D.projects.items.map(function(p){return{title:p.title,status:p.status,description:p.desc,role:p.role,tools:p.tools,link:U(p.link)}}),
+  experience:D.experience,education:D.education,services:D.services,resumeLink:U(D.resume.link),
+  contactEmail:/example\.com$/.test(D.contact.email)?"":D.contact.email,
+  socials:D.contact.socials.filter(function(s){return U(s.url)})};
+ return "You are "+D.chat.name+", the AI assistant on "+D.name+"'s portfolio website. You are an AI, not "+D.name+". Answer visitors using ONLY the facts below. Rules: be friendly, professional and concise (under 90 words, plain text, no markdown). Never invent experience, clients, completed projects, qualifications or links. Never promise availability, deadlines or prices; say rates depend on scope and the visitor should send an inquiry. Never claim any site or app is secure without testing. Share only contact details listed below; if none, point to the contact form on the page. If asked something not covered, say you don't know and suggest contacting "+D.name+". If a visitor wants to hire or start a project, invite them to say 'hire him' so you can collect a short inquiry.\n\nFACTS:\n"+JSON.stringify(k);
+}
+function kb(t){var l=t.toLowerCase();for(var i=0;i<KB.length;i++)if(KB[i][0].test(l)){say(KB[i][1]);chips(["Show projects","Services","Hire him"]);return}say(D.chat.fallback);chips(D.chat.chips)}
+function askAI(t){
+ if(busy)return;busy=true;hist.push({role:"user",content:t});
+ var d=document.createElement("div");d.className="m b";d.textContent="…";M.appendChild(d);M.scrollTop=M.scrollHeight;
+ var m=hist.slice(-7).map(function(x){return{role:x.role,content:x.content}});
+ m[0].content=SYS()+"\n\nConversation follows. Visitor: "+m[0].content;
+ AI(m,{cache:false,onText:function(r){d.textContent=r.text;M.scrollTop=M.scrollHeight}}).then(function(r){
+  var x=(r&&r.text)||"";d.textContent=x||D.chat.fallback;hist.push({role:"assistant",content:d.textContent});busy=false;chips(["Show projects","Services","Hire him"]);
+ }).catch(function(e){busy=false;d.remove();hist.pop();if(e&&e.code==="not_granted")AI=null;kb(t)});
+}
+
+/* ---------- Resume download (built-in PDF). To use your own hosted link instead, set resume.link in D ---------- */
+document.querySelectorAll("[data-resume]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();
+ var bin=atob(RESUME_PDF),n=bin.length,u=new Uint8Array(n);for(var i=0;i<n;i++)u[i]=bin.charCodeAt(i);
+ var blob=new Blob([u],{type:"application/pdf"});
+ (window.claude&&claude.use?claude.use("downloads"):Promise.resolve(null)).then(function(dl){
+  if(!dl)throw 0;return dl.save({filename:"Mithlesh_Sutihar_Resume.pdf",data:blob})
+ }).catch(function(err){if(err&&err.code==="declined")return;alert("The download isn’t available in this view. Open the page in claude.ai and try again.")})})});
+var RESUME_PDF="JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgOCAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA3IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgNyAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0F1dGhvciAoTWl0aGxlc2ggU3V0aWhhcikgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MTAyNTA0NDkzNCswMCcwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MTAyNTA0NDkzNCswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoTWl0aGxlc2ggU3V0aWhhciAtIFJlc3VtZSkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNCAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjUwNwo+PgpzdHJlYW0KR2IhI11EMCtFIyZIOyopWihFZEg3b2dsWSJTPlYhLW8hMGovZUZxS2FkNUBVaSM1MFdWJVlKUHI6b11OS1RPSEpDYiU8JEJEYEMhZ1k2QGJUNy1GWSI5WkQ0cCJddVZoRzwrZCM4OWM9Vks0Ry5oMWsvKmghKWY4KE08WVllKDJjZV1AMk0jZSdUYmJEVzBkSlojODInWmRBajFCR28nPClnJ1BEZylZdGMoViQ4RD1EPlEtNmpqYzRbXjlHTWpTRzMlS0JgJ1VTUXMobm81bnMtKlBbPG0/U01GSSlaQmlSJU4wMUMqdVJSUUwnPjBFRy0iXlhvXUJUQkg/M2xZMiEiLFI3Q0BeJ2ZEIl1YaXE+UXMjTGZtN05dbXFCWHVoQFtjbEtkMik8L3VWSGdfR19uKF5OPkNEOXU3ci44ZE9wOl8mdSJGbUFlZCNoUF5YXT9DRyJoZ1cvVHApQSxFZ2wyND5bRD5yKU51Jy8yJkpfRiw2MkouUVRxYnQhJE4kIUowckdiJ2w2SiROYXIqdCNSTGxcTywiSFQwamJLJGxOIyc6TCU9J3BwNEdHcCR1U1NrK2JvalVWRT1jXEFKOilBbWwmUkojQ1BeYFonXlM6Pzo4T14mRmI4LW1eKnUzLENtbkBqVzE3bVtzLSJnRCIvJWxGOjxnQ18zWmM1cDcvSyE9VzFdYSxzQTpFLyQidVpwXE1oV1RzcEg7MzInWHMxVTJMIVVjc2JAJi0zSCdLMjpFSGA3Rl44SS1CJDolSllmTCRWOCI8K0BxJC0waSZHT2Ila1pVQF9xM05AakQkaSNvV3FfNXBNRWxNPlNyYVFRYm1iLz48XFAma0JJKy1ELy1XU1NiS15cLidIQk9IOVgpYDovOWAhZD5UZ2pIMFgwJUJjVGY2aTpMTjs0bV9SZW4hZFpDYUhJVDojYyVEMEhUMGddVTA9XzRxc21ZNTpbWC5bM0hJJytzcz86bz9fPGooNk1kO2MkW1piYXFeWSlOWXM/XDlHOV4/cT5NcFZKTS8wS2BQYEc2Nk9Ucl5zJF0pNUJTQUM8Xm4+N0ckTTQpVkJUZnBtbk9VVDdROmJAKDMhZWUkLDlIP24jKElxLSFiKiY9RktrdCovbCoxc0JRK2E2bjEqRDU+KDE7IiVaPTVWLUguVjBvMUE3VU5PUzVTUz5rOFQqWSFHJENqbUg3TFFgJmFCUVNAVms+YjcqRycnV2FoR0I3aEc/IkduWkBeX0UqWDhucDNkLSZLQS49NV0lN3Bpclo4dTxTODE2NDUxXmNZZ1gjS08lY0FwbW4pRCl0ZFVmayExW0ZGZk0qTkphIUZlXylMKVUuWGJOdE8iLV1GXitrY2lELDVibms5Qmc9dD0rcURmKEVOQmElSmdNSDAjMGpJMUk0UmksLUxtWkRLWWNzLVlZWHFwdWhfKVl0S0VOMV5xbVgmJ1UqWypLIl4oL1Q8MWxYJS4zXV87SXV0XFlGVVxBPi0hRjE2Oy5gMU0qX1kiWC8hNkA7W1VKRVtnPHFTZSJgTj1qLStOOjRpOWxRVU9FMz9WI1RpLEJqOmZYZyxYQ1k8O1kiUWwmcWhsSUFHJlhVWDI0MVw3X08tVyIkUiMmaGU7UUltMFY6SG82K2s5WGUuSiYyZk9CaUo9SyxIQj1uR3VINmNaLSVEImBxOzdLaE5fMzYwUEBEUyssMD8jdSNnb1tzKFhtLVRlMDRwRkhQKz9WNyo3KlJhL2k9N1lBb05XZUcoVCI0RVRoRDdDQEk+bHAkRmYyK2RdJSslPGNHJkVDIjYtSihMSzY2LTE8NGoqYHUvJ0kmbz1XKCg3YVZrMmk6ayEyOTNFTzpYK0csXkRMVGVBWEBda04yZ2ZYKV4ta00hUENpTEVkP091cC48ai9DKlxrNTVsQkxWIyxZJWBwOCNxX0dCbW9cbiNxbixqJGNlWSVFbFY1cUVETCE7ak8lWG9jK2JQakkzU19aM0lFa0ktRTEjK05lRkpOYW5EXE9aM0k2KzkvTV8tNDQ6PkFEVWFGZiQ+amRyY1UpMWI3bShAdCdwQVB0aE5maFNsPDVIYk44ZWtgKGw0V15iKD1gN0dZIU9qM0BqSSo6MDhzPjUocEMiTmBPI1kwRDVMOmUhanItQlZZMFxcJm5kOlhIcCtPWC5KUFRoaXBkPzYlUV9qZC9AOEcvZCYwYTlaZmRLYVgvU2VdMWkjSyMwNkVFZkcpUWFvZlZoUSVPRCVIa2EqXGZZWDRaP2dUJ2tASmxYQ2YuUylYZXElUTVwSCkxckZeW0BrbS1JcDUnTWVpO11kJTpyWGNAOm11NkcuYipPdV9RNi9lN3AkJztNTSJwWmw3dENYN107WyJXUjBOc1U0J0lYVzBhYUZFLy1FPTU7LHA0YFBkJyUpWFYtXjJRTUJxbzAvYkZRYjVeX106XTwhRiYwTCk7ZigsQE1tSFNjIilsN2xcP2FGKz5UR0dNO1A7LlNgKUtMXVg9a1tAQG5IaVRNMShZRjlnRD5rUlNFI10hbyVaNEFdSjA0bihnNHNoIXIwI3AiViRvTlVmcUloJlg3PVFeLGVcOF1AVUtnWmxgQC9yKUNPJikxQGcsNV5IbVo/QVFlcTNAIVJeXz08aUdRS1JoPXE1OWFaVjJHJThjUCVNcyg4XUNhc0olLlFMTyNjUC85JUBfZ1lxSW9TSXRBWWhFXmczaWU3USEvYD5AMTpFKzJecWAnITcvbmJHPmgnNWpbUCIyXlEtUkpZOFE2RHM/SyJxOiJOTSlOSWgwWUouM0dpPzVCVy1mcVVecUteJjRnTyRkM1JrOjVabWE3SkwhUDgrJColJ1xFQj9sVjdcb1VbblkpW0I5IVI8QiVmdTo5Mj1oWUBZNkI2aCJgR1YnZCckKCNXZElCQlo4VikubzAqTidrWWBxPVJDQ2VzRSQ0VGslRU07MT5PUGRCP3BxPGtINTdtNG5qcytSUzZbXldCRm05Z25SPGRnSEA7TGhKa0VTVG1jS0MvP3MtNCo3I2lfJWsubG8tVUhnKlIiPmpfLmArb2grPGxnaF9KRCNvK2hXN0hGLF8+UFsucW5DOWk4Qic0Kz9mJTxxMEhDYyhDQ1JfYVA2WlJQT24mcHU7USNWUCsrJFBsU1hUL21UOCYyRHAvU1FgNU9tZ2w7S2MvRSgmaUhCVElPVlE5KVQ7aF1dYSpiX2ppSkEyNG89RFQ7LmImWSsoK2M9MmVnXipSKjYkP14kJ3BXYW8vJGBVIkFbSCtVYT47VDAlJEIpLTdnOHEoPEBjOydsZDg/JTVfXjtXJVFrUVtWIVRONipQVzxeMldUYWkkZW5sfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA5CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTAyIDAwMDAwIG4gCjAwMDAwMDAyMDkgMDAwMDAgbiAKMDAwMDAwMDMyMSAwMDAwMCBuIAowMDAwMDAwNTI0IDAwMDAwIG4gCjAwMDAwMDA1OTIgMDAwMDAgbiAKMDAwMDAwMDg4NyAwMDAwMCBuIAowMDAwMDAwOTQ2IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDVlNWI5OGRmZWNjMjM2MjVkMDYxMmJlMTU2N2IxYTQ4Pjw1ZTViOThkZmVjYzIzNjI1ZDA2MTJiZTE1NjdiMWE0OD5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gNiAwIFIKL1Jvb3QgNSAwIFIKL1NpemUgOQo+PgpzdGFydHhyZWYKMzU0NAolJUVPRgo=";
+</script>
+</body>
+</html>
