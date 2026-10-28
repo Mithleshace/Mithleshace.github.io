@@ -116,12 +116,6 @@ footer{text-align:center;color:var(--mu);padding:40px 24px calc(40px + 70px);bor
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-/* =====================================================================
-   EDIT YOUR WHOLE SITE HERE. Every line of text on the page and in the
-   NEXUS chatbot comes from the object D below. Change the text inside
-   the quotes. Leave link values as "" to keep that button inactive.
-   Links must start with https:// or mailto:
-   ===================================================================== */
 var D={
  pageTitle:"Mithlesh Sutihar | Cybersecurity, AI/ML and Web Developer",
  name:"Mithlesh Sutihar",
@@ -142,7 +136,7 @@ var D={
 
  skills:{title:"Skills",
   legend:["Working skill","Exploring or still confirming"],
-  groups:[ /* item level: "l" = working skill, "e" = exploring / confirming */
+  groups:[
    {name:"Development",items:[["HTML","l"],["CSS","l"],["JavaScript","l"],["Python","l"],["C","l"],["Responsive design","l"]]},
    {name:"Cybersecurity and networking",items:[["Network traffic analysis","l"],["Web app security ","l"],["Authorized lab assessment","l"],["Networking concepts","l"]]},
    {name:"AI and machine learning",items:[["Python for ML","l"],["OpenCV","e"],["Data preprocessing","l"]]},
@@ -152,7 +146,7 @@ var D={
 
  projects:{title:"Projects",
    roleLabel:"Role: ",toolsLabel:"Tools: ",
-  /* link: your URL.  linkLabel: text once the link is set.  emptyLabel: text while link is "" (delete it to hide the link row) */
+  
   items:[
    {status:"Learning",title:"Cybersecurity Lab",desc:"A learning-focused lab exploring network analysis, web application security, vulnerability identification, and defensive practices.",role:"Cybersecurity",tools:"Wireshark, DVWA, Linux / Kali Linux"},
    {status:"Learning",title:"AI/ML Experiments",desc:"Practical experiments in understanding data, building predictive models, and exploring computer vision.",role:"AI/ML developer in training",tools:"Python, OpenCV, Jupyter Notebook",link:"",linkLabel:"View repository",emptyLabel:"Repository: add GitHub link"},
@@ -206,7 +200,7 @@ var D={
 var EMAIL=D.contact.email;
 var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Page builder (no need to edit below) ---------- */
+
 function $(i){return document.getElementById(i)}
 function E(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function U(u){return /^(https?:|mailto:)/i.test(u||"")?u:""}
@@ -234,7 +228,6 @@ $("foot").textContent=D.footer;
 $("fab").textContent=D.buttons.nexus;$("cname").textContent=D.chat.name;$("cbadge").textContent=D.chat.badge;
 document.querySelectorAll("[data-empty]").forEach(function(x){x.addEventListener("click",function(e){e.preventDefault();alert("This link isn’t added yet. Add it in the D block at the top of the page script.")})});
 
-/* Particle background */
 (function(){
  try{
   var cv=document.getElementById("bg"),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
@@ -253,7 +246,7 @@ document.querySelectorAll("[data-empty]").forEach(function(x){x.addEventListener
  }catch(e){document.getElementById("bg").style.display="none"}
 })();
 
-/* Card tilt */
+
 document.querySelectorAll(".card").forEach(function(c){
  if(RM)return;
  c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
@@ -261,13 +254,13 @@ document.querySelectorAll(".card").forEach(function(c){
  c.addEventListener("pointerleave",function(){c.style.transform=""});
 });
 
-/* Contact form */
+
 document.getElementById("cform").addEventListener("submit",function(e){
  e.preventDefault();var d=new FormData(e.target);
  location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Project inquiry from "+d.get("n"))+"&body="+encodeURIComponent(d.get("m")+"\n\nFrom: "+d.get("n")+" ("+d.get("e")+")");
 });
 
-/* NEXUS */
+
 var chat=document.getElementById("chat"),M=document.getElementById("msgs"),Q=document.getElementById("qs"),CI=document.getElementById("ci"),flow=null,lead={},greeted=false;
 function open_(v){chat.classList.toggle("on",v);document.getElementById("fab").setAttribute("aria-expanded",v);
  if(v){if(!greeted){greeted=true;say(D.chat.intro);chips(D.chat.chips)}CI.focus()}}
@@ -300,7 +293,6 @@ function reply(t){
 }
 document.getElementById("cf").addEventListener("submit",function(e){e.preventDefault();var v=CI.value.trim();if(!v)return;CI.value="";ask(v)});
 
-/* ---------- NEXUS live AI (Claude). Falls back to the D.faq answers if unavailable ---------- */
 var AI=null,hist=[],busy=false;
 if(window.claude&&claude.use)claude.use("sample").then(function(x){if(x){AI=x;$("cbadge").textContent=D.chat.badge+" · powered by Claude"}}).catch(function(){});
 function SYS(){
@@ -322,7 +314,6 @@ function askAI(t){
  }).catch(function(e){busy=false;d.remove();hist.pop();if(e&&e.code==="not_granted")AI=null;kb(t)});
 }
 
-/* ---------- Resume download (built-in PDF). To use your own hosted link instead, set resume.link in D ---------- */
 document.querySelectorAll("[data-resume]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();
  var bin=atob(RESUME_PDF),n=bin.length,u=new Uint8Array(n);for(var i=0;i<n;i++)u[i]=bin.charCodeAt(i);
  var blob=new Blob([u],{type:"application/pdf"});
