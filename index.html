@@ -3,100 +3,265 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mithlesh | AI Engineer</title>
+<title>Mithlesh Sharma | AI Engineer</title>
 <meta name="description" content="AI Engineer building LLM applications, machine learning systems and the software around them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* TODO: clean up these root variables later if dark mode breaks */
 :root{
-  --bg-color:#F4F5FA; --surface:#FFFFFF; --ink-main:#161A2E; --muted:#5A6079; --line:#DDE0EE;
-  --accent-primary:#5B4BFF; --accent-ink:#FFFFFF; --signal:#C77700; --code-bg:#EEF0FA;
-  --display:"Bricolage Grotesque",Georgia,serif; --body-font:"Instrument Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --bg:#F4F5FA; --surface:#FFFFFF; --ink:#161A2E; --muted:#5A6079; --line:#DDE0EE;
+  --accent:#5B4BFF; --accent-ink:#FFFFFF; --signal:#C77700; --code:#EEF0FA;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Instrument Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg-color:#101528; --surface:#171D36; --ink-main:#ECEEF8; --muted:#9AA1C2; --line:#2A3158;
-    --accent-primary:#8B7CFF; --accent-ink:#101528; --signal:#FFB84D; --code-bg:#0C1020;
-  }
-}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101528; --surface:#171D36; --ink:#ECEEF8; --muted:#9AA1C2; --line:#2A3158;
+  --accent:#8B7CFF; --accent-ink:#101528; --signal:#FFB84D; --code:#0C1020;}}
 :root[data-theme="dark"]{
-  --bg-color:#101528; --surface:#171D36; --ink-main:#ECEEF8; --muted:#9AA1C2; --line:#2A3158;
-  --accent-primary:#8B7CFF; --accent-ink:#101528; --signal:#FFB84D; --code-bg:#0C1020;
-}
+  --bg:#101528; --surface:#171D36; --ink:#ECEEF8; --muted:#9AA1C2; --line:#2A3158;
+  --accent:#8B7CFF; --accent-ink:#101528; --signal:#FFB84D; --code:#0C1020;}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{background:var(--bg-color);color:var(--ink-main);font:400 1.0625rem/1.65 var(--body-font);-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--accent-primary);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
 h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
 h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:2rem}
 section{padding:5rem 0}
 .mono{font-family:var(--mono);font-size:.85rem}
 
-/* contact - moved up here randomly because I was working on it last */
-.contact{text-align:center;border-top:1px solid var(--line)}
-.contact h2{margin-bottom:1rem}
-
-header{position:sticky;top:0;z-index:10;background:rgba(244, 245, 250, 0.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+/* nav */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font:700 1.15rem var(--display);text-decoration:none}
 .links{display:flex;gap:1.6rem;align-items:center}
 .links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
-.links a:hover{color:var(--ink-main)}
-.theme{background:none;border:1px solid var(--line);color:var(--ink-main);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}  
+.links a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
 @media(max-width:720px){.links a{display:none}}
 
+/* hero */
 .hero{padding:4.5rem 0 5rem;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
 .hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);margin-bottom:1.25rem}
-.hero p.lead{color:var(--muted);max-width:34rem;font-size:1.15rem}  
+.hero p.lead{color:var(--muted);max-width:34rem;font-size:1.15rem}
 .cta{display:flex;gap:.9rem;margin-top:2rem;flex-wrap:wrap}
 .btn{display:inline-block;padding:.8rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-2px)}
-.btn.primary{background:var(--accent-primary);color:var(--accent-ink);border-color:var(--accent-primary)}
-.term{background:var(--code-bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -25px rgba(30,30,90,.45)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.term{background:var(--code);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -25px rgba(30,30,90,.45)}
 .term-bar{display:flex;gap:6px;padding:.7rem 1rem;border-bottom:1px solid var(--line)}
 .term-bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
 .term-body{padding:1.2rem 1.3rem 1.5rem;min-height:292px;font-family:var(--mono);font-size:.84rem;line-height:1.75}
 .term .q{color:var(--muted)} .term .q b{color:var(--signal);font-weight:500}
 .term .a{margin-top:.9rem;white-space:pre-wrap}
-.cur{display:inline-block;width:.55em;height:1.05em;background:var(--accent-primary);vertical-align:-.18em;animation:blink 1s steps(1) infinite}
+.cur{display:inline-block;width:.55em;height:1.05em;background:var(--accent);vertical-align:-.18em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media(max-width:860px){.hero{grid-template-columns:1fr}}
 
+/* profile */
+.brand{display:flex;align-items:center;gap:.7rem}
+.avatar{padding:0;border:0;background:none;cursor:zoom-in;border-radius:50%;flex:none;width:40px;height:40px;box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--accent);transition:transform .2s}
+.avatar:hover{transform:scale(1.08)}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.lb{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;background:rgba(8,10,22,.82);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;cursor:zoom-out;padding:1.5rem}
+.lb.open{opacity:1;visibility:visible}
+.lb img{width:min(86vw,400px);aspect-ratio:1;object-fit:cover;border-radius:20px;transform:scale(.4);transition:transform .3s cubic-bezier(.2,.9,.3,1.1);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb.open img{transform:scale(1)}
+.lb p{color:#fff;font:700 1.5rem var(--display);text-align:center}
+.lb p small{display:block;font:400 .95rem var(--body);color:#C3C8E6;margin-top:.2rem}
+.lb .x{position:absolute;top:max(1rem,env(safe-area-inset-top));right:1rem;background:rgba(255,255,255,.14);border:0;color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+
+/* projects */
 .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem}
 .card{grid-column:span 3;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.6rem;display:flex;flex-direction:column;gap:.8rem}
 .card.feature{grid-column:span 6;display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:2rem}
 .card h3{font-size:1.4rem}
 .card p{color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
-.tags span{font:500 .78rem var(--mono);padding:.2rem .6rem;border-radius:6px;background:var(--code-bg);border:1px solid var(--line);color:var(--muted)}
-.card a.more{font-weight:600;text-decoration:none;color:var(--accent-primary)}
+.tags span{font:500 .78rem var(--mono);padding:.2rem .6rem;border-radius:6px;background:var(--code);border:1px solid var(--line);color:var(--muted)}
+.card a.more{font-weight:600;text-decoration:none;color:var(--accent)}
 .card a.more:hover{text-decoration:underline}
 .metric{display:flex;flex-direction:column;justify-content:center;gap:.4rem;border-left:1px solid var(--line);padding-left:2rem}
-.metric strong{font:700 2.6rem var(--display);color:var(--accent-primary)}
+.metric strong{font:700 2.6rem var(--display);color:var(--accent)}
 @media(max-width:760px){.card,.card.feature{grid-column:span 6}.card.feature{grid-template-columns:1fr;gap:1rem}.metric{border:0;padding:0}}
 
+/* skills */
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2rem 1.5rem}
-.skills h3{font-size:1.05rem;margin-bottom:.7rem;font-family:var(--body-font);font-weight:600;letter-spacing:0}
+.skills h3{font-size:1.05rem;margin-bottom:.7rem;font-family:var(--body);font-weight:600;letter-spacing:0}
 .skills ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
 .skills li{padding:.3rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem}
 
+/* timeline */
 .tl{border-left:2px solid var(--line);margin-left:.4rem}
 .tl article{position:relative;padding:0 0 2.2rem 1.8rem}
-.tl article::before{content:"";position:absolute;left:-7px;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--accent-primary);border:2px solid var(--bg-color)}
+.tl article::before{content:"";position:absolute;left:-7px;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
 .tl h3{font-size:1.25rem}
 .tl .when{color:var(--muted);margin:.15rem 0 .5rem}
 .tl p{max-width:44rem}
 
+/* interests + contact */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.two ul{padding-left:1.1rem;color:var(--muted)} .two li{margin-bottom:.5rem} .two li b{color:var(--ink-main);font-weight:600}
+.two ul{padding-left:1.1rem;color:var(--muted)} .two li{margin-bottom:.5rem} .two li b{color:var(--ink);font-weight:600}
 @media(max-width:760px){.two{grid-template-columns:1fr}}
+.contact{text-align:center;border-top:1px solid var(--line)}
+.contact h2{margin-bottom:1rem}
+.contact p{color:var(--muted);margin:0 auto 2rem;max-width:32rem}
+.social{display:flex;gap:1.5rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.social a{color:var(--muted);text-decoration:none;font-weight:500}.social a:hover{color:var(--accent)}
+footer{padding:2rem 0;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<!-- everything looks fine, don't touch layout structure -->
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <div class="brand">
+        <button class="avatar" id="avatar" aria-label="View profile photo of Mithlesh Sharma"><img src="profile.jpg" alt="Mithlesh Sharma" width="40" height="40"></button>
+        <a class="logo" href="#top">Mithlesh Sharma</a>
+      </div>
+      <div class="links">
+        <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        <button class="theme" id="theme" aria-label="Switch colour theme">◐</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <h1>I build AI systems that work outside the notebook.</h1>
+    <p class="lead">AI Engineer working across machine learning, LLM applications and the backend software that serves them, in Python, Java and more.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="term" aria-label="Short introduction typed out like a model response">
+    <div class="term-bar"><i></i><i></i><i></i></div>
+    <div class="term-body">
+      <div class="q"><b>prompt&gt;</b> who is Mithlesh?</div>
+      <div class="a" id="out" aria-live="off"></div><span class="cur" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
+
+<section id="projects"><div class="wrap">
+  <h2>Selected projects</h2>
+  <div class="grid">
+    <!-- EDIT: replace each project with your real work -->
+    <article class="card feature">
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <h3>Document Q&amp;A with retrieval-augmented generation</h3>
+        <p>An assistant that answers questions over PDFs and internal docs, with source citations and an evaluation set that tracks answer quality as prompts and models change.</p>
+        <div class="tags"><span>Python</span><span>LLMs</span><span>RAG</span><span>FastAPI</span><span>Vector DB</span></div>
+        <a class="more" href="https://github.com/Mithleshace">View on GitHub</a>
+      </div>
+      <div class="metric"><strong>[xx%]</strong><span class="mono">add your headline result here</span></div>
+    </article>
+    <article class="card">
+      <h3>Image classification service</h3>
+      <p>A trained CNN served through a REST API, with batch inference and monitoring for model drift.</p>
+      <div class="tags"><span>PyTorch</span><span>Docker</span><span>AWS</span></div>
+      <a class="more" href="https://github.com/Mithleshace">View on GitHub</a>
+    </article>
+    <article class="card">
+      <h3>Recommendation engine</h3>
+      <p>A Java microservice that ranks items using a Python-trained model, built for low-latency responses.</p>
+      <div class="tags"><span>Java</span><span>Spring Boot</span><span>Scikit-learn</span></div>
+      <a class="more" href="https://github.com/Mithleshace">View on GitHub</a>
+    </article>
+    <article class="card">
+      <h3>Sentiment analysis pipeline</h3>
+      <p>Fine-tuned a transformer on domain text and compared it against classical baselines.</p>
+      <div class="tags"><span>Hugging Face</span><span>NLP</span><span>Pandas</span></div>
+      <a class="more" href="https://github.com/Mithleshace">View on GitHub</a>
+    </article>
+    <article class="card">
+      <h3>AI agent with tool use</h3>
+      <p>An agent that plans multi-step tasks and calls external APIs, with guardrails and structured outputs.</p>
+      <div class="tags"><span>Agents</span><span>Python</span><span>REST APIs</span></div>
+      <a class="more" href="https://github.com/Mithleshace">View on GitHub</a>
+    </article>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Languages</h3><ul><li>Python</li><li>Java</li><li>JavaScript</li><li>SQL</li><li>C++</li></ul></div>
+    <div><h3>AI and machine learning</h3><ul><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>Hugging Face</li><li>LLMs and RAG</li><li>Prompt engineering</li></ul></div>
+    <div><h3>Data</h3><ul><li>Pandas</li><li>NumPy</li><li>MySQL</li><li>MongoDB</li><li>Vector databases</li></ul></div>
+    <div><h3>Engineering and deployment</h3><ul><li>FastAPI</li><li>Spring Boot</li><li>Docker</li><li>AWS</li><li>Git and CI/CD</li><li>Linux</li></ul></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience and education</h2>
+  <div class="tl">
+    <!-- EDIT: dates, roles, companies -->
+    <article><h3>AI Engineer, [Company]</h3><div class="when mono">[Start] to present</div><p>Build and ship LLM and machine learning features, from prototype to production. Own evaluation, deployment and monitoring.</p></article>
+    <article><h3>Machine Learning Intern, [Company]</h3><div class="when mono">[Start] to [End]</div><p>Trained and evaluated models on real datasets and wrote the data pipelines that fed them.</p></article>
+    <article><h3>B.Tech, [Your degree and college]</h3><div class="when mono">[Start] to [End]</div><p>Focus on computer science, data structures, and applied machine learning.</p></article>
+  </div>
+</div></section>
+
+<section id="interests"><div class="wrap two">
+  <div>
+    <h2>Beyond the day job</h2>
+    <p style="color:var(--muted);max-width:30rem">The things I read about and tinker with when I’m not shipping models.</p>
+  </div>
+  <ul style="align-self:center">
+    <li><b>AI security.</b> Adversarial examples, prompt injection and how to defend models against them.</li>
+    <li><b>Cybersecurity.</b> CTFs and security reading, kept as a hobby.</li>
+    <li><b>Open source.</b> Reading and contributing to ML tooling.</li>
+  </ul>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <h2>Let’s build something</h2>
+  <p>I’m open to AI engineering roles and collaborations. The fastest way to reach me is email.</p>
+  <a class="btn primary" href="mailto:your.email@example.com">your.email@example.com</a>
+  <div class="social">
+    <a href="https://github.com/Mithleshace">GitHub</a>
+    <a href="https://www.linkedin.com/in/your-handle">LinkedIn</a>
+    <a href="#">Resume</a>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Mithlesh Sharma. Built by hand with HTML and CSS.</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Profile photo" aria-hidden="true">
+  <button class="x" id="lbx" aria-label="Close photo">×</button>
+  <img src="profile.jpg" alt="Mithlesh Sharma">
+  <p>Mithlesh Sharma<small>AI Engineer</small></p>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),av=document.getElementById('avatar');
+  function openLb(){lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.getElementById('lbx').focus()}
+  function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');av.focus()}
+  av.addEventListener('click',openLb);
+  lb.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb()});
+})();
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+    var next=dark?'light':'dark';root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var text="AI Engineer who builds LLM apps and ML systems end to end.\n\nStack:  Python, Java, SQL, PyTorch\nFocus:  RAG, evaluation, deployment\nAlso into:  AI security\n\nStatus: open to new roles.";
+  var out=document.getElementById('out');
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){out.textContent=text;return}
+  var i=0;(function tick(){out.textContent=text.slice(0,i++);if(i<=text.length)setTimeout(tick,28)})();
+})();
+</script>
 </body>
 </html>
